@@ -9,6 +9,7 @@ import altair as alt
 from PIL import Image
 import base64
 
+
 # Markdown
 st.title("This is a Markdown title")
 st.header("This is a Markdown header")
@@ -29,8 +30,8 @@ This is a Markdown list：
 - lover
 """)
 
-st.text("You can also write a formula:")
-st.latex("\sum_{i=1}^{n}")
+st.text("You can also write a formula using markdown grammar:")
+st.latex("\sum_{i=1}^{n} x^2 + y^2")
 
 # Matplotlib
 arr = np.random.normal(1, 1, size=100)
@@ -43,7 +44,8 @@ st.pyplot(fig)
 number = st.number_input("Insert a number", 123)
 st.write("Your input：", number)
 
-# st.write ()
+# st.write()
+
 # write(data_frame) : Displays the DataFrame as a table.
 # write(func) : Displays information about a function.
 # write(module) : Displays information about the module.
@@ -79,11 +81,9 @@ st.dataframe(df_1)
 st.write("Hello, *World!* :sunglasses:")
 
 # Draw
-df_2 = pd.DataFrame(
-    np.random.randn(200, 3),
-    columns=["a", "b", "c"]
-)
+df_2 = pd.DataFrame(np.random.randn(200, 3), columns=["a", "b", "c"])
 
 c = alt.Chart(df_2).mark_circle().encode(
     x="a", y="b", size="c", color="c", tooltip=["a", "b", "c"])
+
 st.write(c)
